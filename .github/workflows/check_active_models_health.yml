@@ -1,0 +1,62 @@
+name: Monitor Active Models Health (Every 15m)
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Every 15 minutes
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  check-models-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check Fast Models Count from Cloudflare Worker
+        id: check_models
+        run: |
+          python3 -c "
+          import urllib.request, json, os
+
+          url = 'https://chatbot.tungle020596.workers.dev'
+          try:
+              req = urllib.request.Request(url, headers={'User-Agent': 'GitHub-Actions-Monitor'})
+              with urllib.request.urlopen(req, timeout=15) as resp:
+                  data = json.loads(resp.read().decode('utf-8'))
+                  fast_models = [m for m in data if m.get('ttft', 999999) < 5000]
+                  fast_count = len(fast_models)
+                  print(f'📊 Total active models from Worker: {len(data)}')
+                  print(f'⚡ Fast models (TTFT < 5000ms) count: {fast_count}')
+                  for m in fast_models:
+                      print(f'  • {m.get(\"provider\")}: {m.get(\"model\")} (TTFT: {m.get(\"ttft\")}ms)')
+
+                  if fast_count < 5:
+                      print(f'⚠️ ALERT: Fast models count ({fast_count}) < 5! Need to trigger update_models.yml.')
+                      with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                          f.write('should_trigger=true\n')
+                  else:
+                      print('✅ HEALTHY: Fast models count >= 5. No update needed.')
+                      with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                          f.write('should_trigger=false\n')
+          except Exception as e:
+              print(f'❌ Error checking worker models ({e}). Triggering update_models.yml as fallback.')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('should_trigger=true\n')
+          "
+
+      - name: Trigger update_models.yml workflow
+        if: steps.check_models.outputs.should_trigger == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🚀 Triggering update_models.yml workflow via gh CLI..."
+          gh workflow run update_models.yml --ref "${{ github.ref_name || 'master' }}"

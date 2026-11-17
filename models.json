@@ -1,0 +1,32 @@
+[
+  {
+    "provider": "Google",
+    "model": "gemini-3.5-flash-lite",
+    "reasoning": false,
+    "default": true
+  },
+  {
+    "provider": "Google",
+    "model": "gemini-3.8-flash",
+    "reasoning": false,
+    "default": false
+  },
+  {
+    "provider": "OpenRouter",
+    "model": "recursive/flint-v1.0:free",
+    "reasoning": false,
+    "default": false
+  },
+  {
+    "provider": "OpenRouter",
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "reasoning": false,
+    "default": false
+  },
+  {
+    "provider": "Cline",
+    "model": "gemma4:31b-cloud",
+    "reasoning": false,
+    "default": false
+  }
+]

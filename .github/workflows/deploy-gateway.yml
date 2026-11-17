@@ -1,0 +1,140 @@
+name: Deploy Cloudflare Gateway
+
+on:
+  push:
+    paths:
+      - 'cloudflare-gateway/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Wrangler CLI
+        run: npm install -g wrangler@latest
+
+      - name: Install dependencies
+        working-directory: ./cloudflare-gateway
+        run: npm install --legacy-peer-deps
+
+      - name: Run Unit Tests
+        working-directory: ./cloudflare-gateway
+        run: npm test
+
+      - name: Deploy Worker
+        working-directory: ./cloudflare-gateway
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Sync Worker Secrets via Cloudflare REST API
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          OPENROUTER_API_KEY_GATEWAY: ${{ secrets.OPENROUTER_API_KEY_GATEWAY }}
+          CLINE_API_KEY_GATEWAY: ${{ secrets.CLINE_API_KEY_GATEWAY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY_GATEWAY }}
+          APP_GATEWAY_TOKEN: ${{ secrets.APP_GATEWAY_TOKEN }}
+          CF_RAG_API_TOKEN: ${{ secrets.CF_RAG_API_TOKEN }}
+        run: |
+          WORKER_NAME="chatbot-gateway"
+          SECRETS_URL="https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/workers/scripts/${WORKER_NAME}/secrets"
+
+          set_secrets() {
+            local SECRET_NAME="$1"
+            local VALUE="${!SECRET_NAME}"
+            if [ -z "$VALUE" ]; then
+              echo "⚠️  Bỏ qua $SECRET_NAME (trống)"
+              return
+            fi
+            echo "🔐 Đang thiết lập secret: $SECRET_NAME"
+            PAYLOAD=$(jq -n --arg n "$SECRET_NAME" --arg t "$VALUE" '{name:$n, text:$t, type:"secret_text"}')
+            HTTP_CODE=$(curl -s -o /tmp/resp.json -w "%{http_code}" -X PUT "${SECRETS_URL}" \
+              -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+              -H "Content-Type: application/json" \
+              --data "$PAYLOAD")
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✅ $SECRET_NAME đã được cập nhật"
+            else
+              echo "❌ Lỗi thiết lập $SECRET_NAME (HTTP $HTTP_CODE): $(cat /tmp/resp.json)"
+            fi
+          }
+
+          set_secrets GEMINI_API_KEYS
+          set_secrets OPENROUTER_API_KEY_GATEWAY
+          set_secrets CLINE_API_KEY_GATEWAY
+          set_secrets NVIDIA_API_KEY
+          set_secrets APP_GATEWAY_TOKEN
+          set_secrets CF_RAG_API_TOKEN
+
+          echo "✅ Hoàn tất deploy và sync secret cho Worker $WORKER_NAME"
+
+      - name: Verify Live Worker Health & Endpoints Across All Providers
+        env:
+          APP_GATEWAY_TOKEN: ${{ secrets.APP_GATEWAY_TOKEN }}
+        run: |
+          GATEWAY_URL="https://chatbot-gateway.tungle020596.workers.dev"
+          TOKEN="${APP_GATEWAY_TOKEN:-sk-live-1234567890abcdef}"
+
+          echo "🔍 1. Security Check: Missing X-App-Token -> Expecting HTTP 401..."
+          UNAUTH_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${GATEWAY_URL}/v1/models")
+          if [ "$UNAUTH_CODE" = "401" ]; then
+            echo "✅ Security passed: HTTP 401 Unauthorized"
+          else
+            echo "❌ Security failed: Got HTTP $UNAUTH_CODE"
+            exit 1
+          fi
+
+          echo "🔍 2. Models Check: GET /v1/models with valid X-App-Token..."
+          RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -H "X-App-Token: ${TOKEN}" "${GATEWAY_URL}/v1/models")
+          HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS" | cut -d: -f2)
+          if [ "$HTTP_STATUS" = "200" ]; then
+            echo "✅ Models endpoint returned HTTP 200 OK"
+          else
+            echo "❌ Models endpoint failed with HTTP $HTTP_STATUS"
+            exit 1
+          fi
+
+          echo "🔍 3. Chat Completions Check: Sending 'còn hoạt động không? Oke chưa?' to ALL Providers..."
+          # Model names phải khớp với local test (test-local.ps1)
+          PROVIDERS=(
+            "Google:google::gemini-3.5-flash-lite"
+            "OpenRouter:openrouter::recursive/flint-v1.0:free"
+            "Cline:cline::recursive/flint-v1.0:free"
+            "NVIDIA:nvidia::google/diffusiongemma-26b-a4b-it"
+          )
+
+          for ENTRY in "${PROVIDERS[@]}"; do
+            PROVIDER_NAME="${ENTRY%%:*}"
+            MODEL_ID="${ENTRY#*:}"
+
+            echo "  -> Testing Provider [$PROVIDER_NAME] with model [$MODEL_ID]..."
+            PAYLOAD=$(jq -n --arg m "$MODEL_ID" '{model:$m, messages:[{role:"user", content:"còn hoạt động không? Oke chưa?"}], stream:false}')
+
+            STATUS_CODE=$(curl -s -o /tmp/chat_resp.txt -w "%{http_code}" \
+              -X POST "${GATEWAY_URL}/v1/chat/completions" \
+              -H "X-App-Token: ${TOKEN}" \
+              -H "Content-Type: application/json" \
+              --data "$PAYLOAD")
+
+            if [ "$STATUS_CODE" = "200" ]; then
+              echo "     ✅ [$PROVIDER_NAME] Phản hồi HTTP 200 OK"
+            else
+              echo "     ⚠️  [$PROVIDER_NAME] Trả về HTTP $STATUS_CODE: $(cat /tmp/chat_resp.txt)"
+            fi
+          done
+
+          echo "🎉 All provider health checks completed!"
