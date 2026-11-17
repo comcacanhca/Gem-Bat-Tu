@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="database" path="chat_database" />
+    <exclude domain="database" path="chat_database-wal" />
+    <exclude domain="database" path="chat_database-shm" />
+</full-backup-content>
