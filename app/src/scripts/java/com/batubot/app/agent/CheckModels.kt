@@ -757,7 +757,9 @@ fun uploadToCloudflare(client: OkHttpClient, jsonOutput: String) {
     val namespaceId = "f794e9bbb164423e9074cfc8a78de4b6"
     val accountId = "55716490813fcdf759a563a89f8e4046"
     val keyName = "models.json"
-    val cloudflareToken = loadPropertiesKey("CF_RAG_API_TOKEN", loadPropertiesKey("CLOUDFLARE_API_TOKEN", ""))
+    val cloudflareToken = loadPropertiesKey(
+    "CLOUDFLARE_API_TOKEN",
+    loadPropertiesKey("CF_RAG_API_TOKEN", ""))
 
     println("[STEP 3] Pushing models.json to Cloudflare Worker & KV namespace $namespaceId (key: $keyName)...")
 
