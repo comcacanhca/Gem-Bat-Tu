@@ -6,9 +6,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
-    id("com.google.gms.google-services")
+}
+
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
 }
 
 secrets {
@@ -123,9 +124,7 @@ android {
     }
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-}
+
 
 tasks.withType<Test> {
     jvmArgs(
@@ -176,14 +175,7 @@ dependencies {
     implementation("org.jsoup:jsoup:1.19.1")
     implementation("com.caverock:androidsvg-aar:1.4")
 
-    val roomVersion = "2.8.4"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-    val hiltVersion = "2.57.2"
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    ksp("com.google.dagger:hilt-compiler:$hiltVersion")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
@@ -242,30 +234,3 @@ tasks.register("updateModelsJson", JavaExec::class.java) {
     environment("NVIDIA_API_KEY", System.getenv("NVIDIA_API_KEY") ?: "")
 }
 
-tasks.register("liveWsProbe", JavaExec::class.java) {
-    group = "agent"
-    description = "Probe Gemini Live WebSocket with OkHttp from JVM (transport isolation test)"
-    dependsOn("compileDebugKotlin")
-    classpath = files(
-        layout.buildDirectory.dir("tmp/kotlin-classes/debug"),
-        layout.buildDirectory.dir("tmp/kotlin-classes/scripts"),
-        configurations.findByName("debugRuntimeClasspath") ?: configurations.findByName("testRuntimeClasspath")
-    )
-    mainClass.set("com.batubot.app.agent.LiveWsProbeKt")
-    environment("GEMINI_API_KEY", System.getenv("GEMINI_API_KEY") ?: "")
-}
-
-tasks.register("livePcTalkProbe", JavaExec::class.java) {
-    group = "agent"
-    description = "PC voice chat with Gemini Live (PC mic + speaker via javax.sound)"
-    dependsOn("compileDebugKotlin")
-    classpath = files(
-        layout.buildDirectory.dir("tmp/kotlin-classes/debug"),
-        layout.buildDirectory.dir("tmp/kotlin-classes/scripts"),
-        configurations.findByName("debugRuntimeClasspath") ?: configurations.findByName("testRuntimeClasspath")
-    )
-    mainClass.set("com.batubot.app.agent.LivePcTalkProbeKt")
-    environment("GEMINI_API_KEY", System.getenv("GEMINI_API_KEY") ?: "")
-    standardInput = System.`in`
-    jvmArgs("-Dfile.encoding=UTF-8", "-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8")
-}

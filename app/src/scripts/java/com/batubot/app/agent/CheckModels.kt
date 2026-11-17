@@ -24,10 +24,10 @@ fun main() {
     try {
         println("=== PROCESS STEP 1: Quét các provider xem có những model free nào (Không dùng Fallback) ===")
 
-        val clineApiKey = loadPropertiesKey("CLINE_API_KEY", "sk_5672ce9347de1817dd3cdec4231eb7d14ae3ea51954149e1b42735240db5ab96")
-        val geminiApiKey = loadPropertiesKey("GEMINI_API_KEY", "AIzaSyAsCDidk0rkzSN1Cpf8GYGgjfc77uz0tes")
-        val openRouterApiKey = loadPropertiesKey("OPENROUTER_API_KEY", "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")
-        val nvidiaApiKey = loadPropertiesKey("NVIDIA_API_KEY", "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")
+        val clineApiKey = loadPropertiesKey("CLINE_API_KEY", "")
+        val geminiApiKey = loadPropertiesKey("GEMINI_API_KEY", "")
+        val openRouterApiKey = loadPropertiesKey("OPENROUTER_API_KEY", "")
+        val nvidiaApiKey = loadPropertiesKey("NVIDIA_API_KEY", "")
 
         val discoveredGoogleModels = discoverGoogleModels(client, geminiApiKey)
         println("[STEP 1] Google Models Scanned (${discoveredGoogleModels.size}): ${discoveredGoogleModels.map { it.id }}")
