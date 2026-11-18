@@ -1,72 +1,65 @@
 [
   {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 12546,
-    "model": "gemma-4-26b-a4b-it"
-  },
-  {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 6975,
+    "ttft": 7661,
     "model": "gemini-flash-lite-latest"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1913,
+    "ttft": 1968,
     "model": "gemini-3-flash-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 684,
+    "ttft": 531,
     "model": "gemini-3.1-flash-lite-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 584,
+    "ttft": 490,
     "model": "gemini-3.1-flash-lite"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 6983,
+    "ttft": 7592,
     "model": "gemini-3.5-flash-lite"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": false,
-    "ttft": 11763,
+    "ttft": 14634,
     "model": "google/lyria-3-pro-preview"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": false,
-    "ttft": 3043,
+    "ttft": 3035,
     "model": "google/lyria-3-clip-preview"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 4722,
+    "ttft": 3781,
     "model": "particle-ai/particle-1:free"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 1393,
+    "ttft": 1163,
     "model": "google/gemma-4-31b-it"
   }
 ]
