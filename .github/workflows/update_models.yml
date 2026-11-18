@@ -46,6 +46,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: "55716490813fcdf759a563a89f8e4046"
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: ./gradlew updateModelsJson
 
       - name: Push models.json to Cloudflare KV

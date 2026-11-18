@@ -1,177 +1,72 @@
 [
   {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 12546,
+    "model": "gemma-4-26b-a4b-it"
+  },
+  {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 475,
+    "ttft": 6975,
     "model": "gemini-flash-lite-latest"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2121,
+    "ttft": 1913,
     "model": "gemini-3-flash-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 4093,
-    "model": "gemini-3.5-flash"
+    "ttft": 684,
+    "model": "gemini-3.1-flash-lite-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 471,
+    "ttft": 584,
+    "model": "gemini-3.1-flash-lite"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 6983,
     "model": "gemini-3.5-flash-lite"
   },
   {
     "default": false,
     "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 672,
-    "model": "liquid/lfm-3-1.7b:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 291,
-    "model": "recursive/flint-v1.0:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 259,
-    "model": "nvidia/nemotron-3.5-super-vl:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 492,
-    "model": "dots-studio/dots-3-note-preview:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 1414,
-    "model": "liquid/lfm-2.5-2.6b:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 112,
-    "model": "nvidia/nemotron-3.5-lightning:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 189,
-    "model": "cohere/north-mini-code:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 315,
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 124,
-    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
     "reasoning": false,
-    "ttft": 10966,
+    "ttft": 11763,
     "model": "google/lyria-3-pro-preview"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": false,
-    "ttft": 2717,
+    "ttft": 3043,
     "model": "google/lyria-3-clip-preview"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 3946,
-    "model": "liquid/lfm-3-1.7b:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 2015,
-    "model": "recursive/flint-v1.0:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 2002,
-    "model": "nvidia/nemotron-3.5-super-vl:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 5022,
-    "model": "dots-studio/dots-3-note-preview:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 20561,
-    "model": "liquid/lfm-2.5-2.6b:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 3451,
-    "model": "nvidia/nemotron-3.5-lightning:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 790,
-    "model": "cohere/north-mini-code:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 11701,
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": true,
-    "ttft": 2151,
-    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+    "ttft": 4722,
+    "model": "particle-ai/particle-1:free"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 766,
-    "model": "google/diffusiongemma-26b-a4b-it"
+    "ttft": 1393,
+    "model": "google/gemma-4-31b-it"
   }
 ]
