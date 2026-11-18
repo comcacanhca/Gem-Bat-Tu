@@ -366,7 +366,7 @@ fun discoverOpenRouterFreeModels(client: OkHttpClient, apiKey: String): List<Dis
                         val isFree = isFreeModel(modelObj)
                         val isTextGen = isTextGenerationModelFromApi(modelObj)
                         val contextLength = modelObj.optInt("context_length", 0)
-                        val hasMinContext = contextLength == 0 || contextLength >= 32000
+                        val hasMinContext = contextLength >= 1_000_000
 
                         // Bỏ qua model text-coder hoặc safety
                         if (modelIdLower.contains("coder") || modelIdLower.contains("safety")) {
