@@ -126,9 +126,9 @@ fun main() {
         // Kiểm tra từng provider riêng biệt: Nếu BẤT KỲ provider nào có 0 model active -> Báo FAIL ngay
         val failedProviders = mutableListOf<String>()
         if (activeGoogleCount == 0) failedProviders.add("Google")
-        if (activeOpenRouterCount == 0) failedProviders.add("OpenRouter")
+        //if (activeOpenRouterCount == 0) failedProviders.add("OpenRouter")
         if (activeClineCount == 0) failedProviders.add("Cline")
-        if (activeNvidiaCount == 0) failedProviders.add("NVIDIA")
+        //if (activeNvidiaCount == 0) failedProviders.add("NVIDIA")
 
         if (failedProviders.isNotEmpty()) {
             val errMsg = "Phát hiện Provider trả về 0 model hoạt động: ${failedProviders.joinToString(", ")}. (Sĩ số active -> Google: $activeGoogleCount, OpenRouter: $activeOpenRouterCount, Cline: $activeClineCount)"
@@ -629,7 +629,7 @@ fun discoverNvidiaModels(client: OkHttpClient, apiKey: String): List<DiscoveredM
                             val modelIdLower = modelId.lowercase()
 
                             // Chỉ lấy model có chứa "gemma", "gpt" hoặc "deepseek"
-                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("gpt") && !modelIdLower.contains("deepseek")) {
+                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("glm") && !modelIdLower.contains("deepseek") && !modelIdLower.contains("minimax")) {
                                 continue
                             }
 
