@@ -3,49 +3,63 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 37680,
-    "model": "gemma-4-31b-it"
+    "ttft": 6969,
+    "model": "gemini-flash-lite-latest"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1821,
+    "ttft": 2142,
     "model": "gemini-3-flash-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 13817,
-    "model": "gemini-3.1-flash-lite-preview"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 10847,
-    "model": "gemini-3.1-flash-lite"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 81850,
+    "ttft": 64727,
     "model": "gemini-3.5-flash"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 13979,
+    "model": "gemini-3.5-flash-lite"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 65912,
+    "model": "gemini-3.6-flash"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1120,
+    "ttft": 1167,
     "model": "baidu/ernie-5.5-flash-preview:free"
+  },
+  {
+    "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 2493,
+    "model": "liquid/lfm-3-1.7b:free"
+  },
+  {
+    "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 632,
+    "model": "particle-ai/particle-1:free"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 641,
+    "ttft": 831,
     "model": "google/gemma-4-31b-it"
   }
 ]
