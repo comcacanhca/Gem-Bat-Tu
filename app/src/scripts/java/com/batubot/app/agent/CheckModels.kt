@@ -369,7 +369,7 @@ fun discoverOpenRouterFreeModels(client: OkHttpClient, apiKey: String): List<Dis
                         val hasMinContext = contextLength >= 1_000_000
 
                         // Bỏ qua model text-coder hoặc safety
-                        if (modelIdLower.contains("coder") || modelIdLower.contains("safety")) {
+                        if (modelIdLower.contains("coder") || modelIdLower.contains("safety")||modelIdLower.contains("google/lyria")) {
                             println("[OPENROUTER] BỎ QUA $modelId (text-coder hoặc safety)")
                             continue
                         }
