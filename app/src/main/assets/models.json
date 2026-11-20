@@ -3,70 +3,84 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 6551,
+    "ttft": 30294,
     "model": "gemini-flash-lite-latest"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2219,
+    "ttft": 2027,
     "model": "gemini-3-flash-preview"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 3458,
+    "ttft": 6618,
+    "model": "gemini-3.1-flash-lite-preview"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 31281,
+    "model": "gemini-3.1-flash-lite"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 76186,
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 20460,
     "model": "gemini-3.5-flash-lite"
   },
   {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 4373,
+    "ttft": 55464,
     "model": "gemini-3.6-flash"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1843,
-    "model": "baidu/ernie-5.5-flash-preview:free"
+    "ttft": 3108,
+    "model": "inclusionai/ling-3.2-flash:free"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1240,
-    "model": "particle-ai/particle-1:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 1196,
+    "ttft": 1611,
     "model": "baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 993,
-    "model": "particle-ai/particle-1:free"
+    "ttft": 1639,
+    "model": "baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 9021,
+    "ttft": 1689,
     "model": "google/gemma-4-31b-it"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 655,
+    "ttft": 610,
     "model": "minimaxai/minimax-m3.1-flash"
   }
 ]
