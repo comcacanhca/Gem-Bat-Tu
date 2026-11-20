@@ -388,7 +388,7 @@ fun discoverOpenRouterFreeModels(client: OkHttpClient, apiKey: String): List<Dis
     } catch (e: Exception) {
         println("[STEP 1] Error scanning OpenRouter free models: ${e.message}")
     }
-    return freeModels.distinctBy { it.id }
+    return freeModels.distinctBy { it.id }.take(3)
 }
 
 fun discoverGoogleModels(client: OkHttpClient, apiKey: String): List<DiscoveredModel> {
