@@ -133,7 +133,7 @@ fun main() {
         val failedProviders = mutableListOf<String>()
         if (activeGoogleCount == 0) failedProviders.add("Google")
         //if (activeOpenRouterCount == 0) failedProviders.add("OpenRouter")
-        if (activeClineCount == 0) failedProviders.add("Cline")
+        //if (activeClineCount == 0) failedProviders.add("Cline")
         //if (activeNvidiaCount == 0) failedProviders.add("NVIDIA")
 
         if (failedProviders.isNotEmpty()) {
