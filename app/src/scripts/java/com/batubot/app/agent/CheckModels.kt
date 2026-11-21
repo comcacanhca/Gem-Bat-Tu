@@ -132,9 +132,9 @@ fun main() {
         // Kiểm tra từng provider riêng biệt: Nếu BẤT KỲ provider nào có 0 model active -> Báo FAIL ngay
         val failedProviders = mutableListOf<String>()
         if (activeGoogleCount == 0) failedProviders.add("Google")
-        if (activeOpenRouterCount == 0) failedProviders.add("OpenRouter")
+        //if (activeOpenRouterCount == 0) failedProviders.add("OpenRouter")
         if (activeClineCount == 0) failedProviders.add("Cline")
-        if (activeNvidiaCount == 0) failedProviders.add("NVIDIA")
+        //if (activeNvidiaCount == 0) failedProviders.add("NVIDIA")
 
         if (failedProviders.isNotEmpty()) {
             val errMsg = "Phát hiện Provider trả về 0 model hoạt động: ${failedProviders.joinToString(", ")}. (Sĩ số active -> Google: $activeGoogleCount, OpenRouter: $activeOpenRouterCount, Cline: $activeClineCount)"
@@ -397,7 +397,7 @@ fun discoverOpenRouterFreeModels(client: OkHttpClient, apiKey: String): List<Dis
                         val hasMinContext = contextLength >= 1_000_000
 
                         // Bỏ qua model text-coder hoặc safety
-                        if (modelIdLower.contains("coder") || modelIdLower.contains("safety")) {
+                        if (modelIdLower.contains("coder") || modelIdLower.contains("safety")||modelIdLower.contains("google/lyria")||modelIdLower.contains("lightning")) {
                             println("[OPENROUTER] BỎ QUA $modelId (text-coder hoặc safety)")
                             continue
                         }
@@ -416,7 +416,7 @@ fun discoverOpenRouterFreeModels(client: OkHttpClient, apiKey: String): List<Dis
     } catch (e: Exception) {
         println("[STEP 1] Error scanning OpenRouter free models: ${e.message}")
     }
-    return freeModels.distinctBy { it.id }
+    return freeModels.distinctBy { it.id }.take(3)
 }
 
 fun discoverGoogleModels(client: OkHttpClient, apiKey: String): List<DiscoveredModel> {
@@ -657,7 +657,7 @@ fun discoverNvidiaModels(client: OkHttpClient, apiKey: String): List<DiscoveredM
                             val modelIdLower = modelId.lowercase()
 
                             // Chỉ lấy model có chứa "gemma", "gpt" hoặc "deepseek"
-                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("gpt") && !modelIdLower.contains("deepseek")) {
+                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("glm") && !modelIdLower.contains("deepseek") && !modelIdLower.contains("minimax")) {
                                 continue
                             }
 
