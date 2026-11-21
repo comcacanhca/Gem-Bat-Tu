@@ -10,6 +10,8 @@ import java.io.File
 import java.util.Properties
 import java.util.concurrent.TimeUnit
 
+fun buildModelId(provider: String, modelId: String) = "$provider::$modelId"
+
 data class DiscoveredModel(
     val id: String,
     val isReasoning: Boolean
@@ -58,6 +60,7 @@ fun main() {
                 val isDefault = isLite && modelLower.contains("flash-lite-latest")
                 results.put(JSONObject().apply {
                     put("provider", "Google")
+                    put("id", buildModelId("Google", item.id))
                     put("model", item.id)
                     put("reasoning", item.isReasoning)
                     put("default", isDefault)
@@ -76,6 +79,7 @@ fun main() {
                 activeOpenRouterCount++
                 results.put(JSONObject().apply {
                     put("provider", "OpenRouter")
+                    put("id", buildModelId("OpenRouter", item.id))
                     put("model", item.id)
                     put("reasoning", item.isReasoning)
                     put("default", false)
@@ -94,6 +98,7 @@ fun main() {
                 activeClineCount++
                 results.put(JSONObject().apply {
                     put("provider", "Cline")
+                    put("id", buildModelId("Cline", item.id))
                     put("model", item.id)
                     put("reasoning", item.isReasoning)
                     put("default", false)
@@ -112,6 +117,7 @@ fun main() {
                 activeNvidiaCount++
                 results.put(JSONObject().apply {
                     put("provider", "NVIDIA")
+                    put("id", buildModelId("NVIDIA", item.id))
                     put("model", item.id)
                     put("reasoning", item.isReasoning)
                     put("default", false)
@@ -155,6 +161,28 @@ fun main() {
 
         println("\n=== PROCESS STEP 3: Tạo file models.json và đẩy lên Cloudflare ===")
         val jsonOutput = results.toString(2).replace("\\/", "/")
+
+        // VALIDATE truoc khi ghi file: moi entry co id non-blank, id unique, provider non-blank, model non-blank.
+        // Vi pham => throw (fail job) thay vi ghi file hong. Chay TRUOC outFile.writeText va uploadToCloudflare.
+        val seenIds = mutableSetOf<String>()
+        for (i in 0 until results.length()) {
+            val obj = results.getJSONObject(i)
+            val id = obj.optString("id", "")
+            val provider = obj.optString("provider", "")
+            val model = obj.optString("model", "")
+            if (id.isBlank()) {
+                throw IllegalStateException("CheckModels validation FAIL: entry $i missing 'id'")
+            }
+            if (!seenIds.add(id)) {
+                throw IllegalStateException("CheckModels validation FAIL: duplicate 'id' = $id")
+            }
+            if (provider.isBlank()) {
+                throw IllegalStateException("CheckModels validation FAIL: entry $i missing 'provider'")
+            }
+            if (model.isBlank()) {
+                throw IllegalStateException("CheckModels validation FAIL: entry $i missing 'model'")
+            }
+        }
 
         // Ghi file models.json cục bộ
         val baseDir = File(System.getProperty("user.dir") ?: ".")
@@ -422,18 +450,18 @@ fun discoverGoogleModels(client: OkHttpClient, apiKey: String): List<DiscoveredM
 
                             // Bỏ các phiên bản quá cũ hoặc thử nghiệm/đặc thù nếu cần
                             val isOlderVersion = modelIdLower.contains("gemini-1.") ||
-                                                 modelIdLower.contains("gemini-2.") ||
-                                                 modelIdLower.contains("gemini-0.")
+                                    modelIdLower.contains("gemini-2.") ||
+                                    modelIdLower.contains("gemini-0.")
 
                             val isExcluded = isOlderVersion ||
-                                             modelIdLower.contains("banana") ||
-                                             modelIdLower.contains("antigravity") ||
-                                             modelIdLower.contains("robotics")||
-                                             modelIdLower.contains("pro")||
-                                             modelIdLower.contains("image")||
-                                             modelIdLower.contains("transcribe")||
-                                             modelIdLower.contains("omni")||
-                                             modelIdLower.contains("tts")
+                                    modelIdLower.contains("banana") ||
+                                    modelIdLower.contains("antigravity") ||
+                                    modelIdLower.contains("robotics")||
+                                    modelIdLower.contains("pro")||
+                                    modelIdLower.contains("image")||
+                                    modelIdLower.contains("transcribe")||
+                                    modelIdLower.contains("omni")||
+                                    modelIdLower.contains("tts")
 
                             val isAllowed = !isExcluded && (modelIdLower.contains("gemini") || modelIdLower.contains("gemma"))
 
@@ -758,8 +786,8 @@ fun uploadToCloudflare(client: OkHttpClient, jsonOutput: String) {
     val accountId = "55716490813fcdf759a563a89f8e4046"
     val keyName = "models.json"
     val cloudflareToken = loadPropertiesKey(
-    "CLOUDFLARE_API_TOKEN",
-    loadPropertiesKey("CF_RAG_API_TOKEN", ""))
+        "CLOUDFLARE_API_TOKEN",
+        loadPropertiesKey("CF_RAG_API_TOKEN", ""))
 
     println("[STEP 3] Pushing models.json to Cloudflare Worker & KV namespace $namespaceId (key: $keyName)...")
 
