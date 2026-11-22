@@ -3,15 +3,31 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 52948,
+    "ttft": 7726,
+    "model": "gemma-4-26b-a4b-it",
+    "id": "Google::gemma-4-26b-a4b-it"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 47656,
     "model": "gemma-4-31b-it",
     "id": "Google::gemma-4-31b-it"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 65791,
+    "model": "gemini-flash-latest",
+    "id": "Google::gemini-flash-latest"
   },
   {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 688,
+    "ttft": 442,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -19,7 +35,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1692,
+    "ttft": 2604,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -27,7 +43,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 612,
+    "ttft": 799,
     "model": "gemini-3.1-flash-lite-preview",
     "id": "Google::gemini-3.1-flash-lite-preview"
   },
@@ -35,7 +51,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 539,
+    "ttft": 1081,
     "model": "gemini-3.1-flash-lite",
     "id": "Google::gemini-3.1-flash-lite"
   },
@@ -43,7 +59,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 26564,
+    "ttft": 22766,
     "model": "gemini-3.5-flash",
     "id": "Google::gemini-3.5-flash"
   },
@@ -51,7 +67,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 573,
+    "ttft": 510,
     "model": "gemini-3.5-flash-lite",
     "id": "Google::gemini-3.5-flash-lite"
   },
@@ -59,7 +75,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2821,
+    "ttft": 3207,
     "model": "gemini-3.6-flash",
     "id": "Google::gemini-3.6-flash"
   },
@@ -67,7 +83,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1810,
+    "ttft": 1426,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
@@ -75,7 +91,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1217,
+    "ttft": 857,
     "model": "particle-ai/particle-1:free",
     "id": "OpenRouter::particle-ai/particle-1:free"
   },
@@ -83,7 +99,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 2420,
+    "ttft": 1721,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "Cline::baidu/ernie-5.5-flash-preview:free"
   },
@@ -91,7 +107,15 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 886,
+    "ttft": 1468,
+    "model": "liquid/lfm-3-1.7b:free",
+    "id": "Cline::liquid/lfm-3-1.7b:free"
+  },
+  {
+    "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 1094,
     "model": "particle-ai/particle-1:free",
     "id": "Cline::particle-ai/particle-1:free"
   },
@@ -99,16 +123,8 @@
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 7733,
+    "ttft": 57501,
     "model": "minimaxai/minimax-m3.1-flash",
     "id": "NVIDIA::minimaxai/minimax-m3.1-flash"
-  },
-  {
-    "default": false,
-    "provider": "NVIDIA",
-    "reasoning": false,
-    "ttft": 8818,
-    "model": "z-ai/glm-5.3-flash",
-    "id": "NVIDIA::z-ai/glm-5.3-flash"
   }
 ]
