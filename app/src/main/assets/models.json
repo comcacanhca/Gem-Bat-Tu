@@ -3,7 +3,15 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 44533,
+    "ttft": 8698,
+    "model": "gemma-4-26b-a4b-it",
+    "id": "Google::gemma-4-26b-a4b-it"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 18895,
     "model": "gemma-4-31b-it",
     "id": "Google::gemma-4-31b-it"
   },
@@ -11,7 +19,7 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 51180,
+    "ttft": 13383,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -19,31 +27,15 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2361,
+    "ttft": 12630,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
   {
     "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 11367,
-    "model": "gemini-3.5-flash",
-    "id": "Google::gemini-3.5-flash"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 2425,
-    "model": "gemini-3.6-flash",
-    "id": "Google::gemini-3.6-flash"
-  },
-  {
-    "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1586,
+    "ttft": 1491,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
@@ -51,23 +43,23 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 3038,
-    "model": "liquid/lfm-3-1.7b:free",
-    "id": "Cline::liquid/lfm-3-1.7b:free"
+    "ttft": 1760,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "Cline::baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1043,
-    "model": "particle-ai/particle-1:free",
-    "id": "Cline::particle-ai/particle-1:free"
+    "ttft": 1491,
+    "model": "liquid/lfm-3-1.7b:free",
+    "id": "Cline::liquid/lfm-3-1.7b:free"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 7066,
+    "ttft": 3421,
     "model": "minimaxai/minimax-m3.1-flash",
     "id": "NVIDIA::minimaxai/minimax-m3.1-flash"
   }
