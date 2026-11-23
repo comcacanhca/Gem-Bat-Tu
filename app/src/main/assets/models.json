@@ -1,9 +1,17 @@
 [
   {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 66718,
+    "model": "gemma-4-26b-a4b-it",
+    "id": "Google::gemma-4-26b-a4b-it"
+  },
+  {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 799,
+    "ttft": 901,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -11,7 +19,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1680,
+    "ttft": 2064,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -19,31 +27,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1436,
-    "model": "gemini-3.1-flash-lite-preview",
-    "id": "Google::gemini-3.1-flash-lite-preview"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 1249,
-    "model": "gemini-3.1-flash-lite",
-    "id": "Google::gemini-3.1-flash-lite"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 31694,
-    "model": "gemini-3.5-flash",
-    "id": "Google::gemini-3.5-flash"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 1032,
+    "ttft": 542,
     "model": "gemini-3.5-flash-lite",
     "id": "Google::gemini-3.5-flash-lite"
   },
@@ -51,7 +35,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1319,
+    "ttft": 923,
     "model": "particle-ai/particle-1:free",
     "id": "OpenRouter::particle-ai/particle-1:free"
   },
@@ -59,7 +43,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 725,
+    "ttft": 2161,
     "model": "liquid/lfm-3-1.7b:free",
     "id": "Cline::liquid/lfm-3-1.7b:free"
   },
@@ -67,7 +51,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 822,
+    "ttft": 787,
     "model": "particle-ai/particle-1:free",
     "id": "Cline::particle-ai/particle-1:free"
   },
@@ -75,7 +59,7 @@
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 11928,
+    "ttft": 5632,
     "model": "minimaxai/minimax-m3.1-flash",
     "id": "NVIDIA::minimaxai/minimax-m3.1-flash"
   }
