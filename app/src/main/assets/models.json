@@ -3,7 +3,7 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 515,
+    "ttft": 4755,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -11,7 +11,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2017,
+    "ttft": 2338,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -19,7 +19,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 480,
+    "ttft": 832,
     "model": "gemini-3.1-flash-lite-preview",
     "id": "Google::gemini-3.1-flash-lite-preview"
   },
@@ -27,7 +27,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 3353,
+    "ttft": 903,
     "model": "gemini-3.1-flash-lite",
     "id": "Google::gemini-3.1-flash-lite"
   },
@@ -35,7 +35,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 5382,
+    "ttft": 4801,
     "model": "gemini-3.5-flash",
     "id": "Google::gemini-3.5-flash"
   },
@@ -43,31 +43,15 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 526,
+    "ttft": 3784,
     "model": "gemini-3.5-flash-lite",
     "id": "Google::gemini-3.5-flash-lite"
   },
   {
     "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 1979,
-    "model": "gemini-3.6-flash",
-    "id": "Google::gemini-3.6-flash"
-  },
-  {
-    "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 2705,
-    "model": "inclusionai/ling-3.2-flash:free",
-    "id": "OpenRouter::inclusionai/ling-3.2-flash:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 1839,
+    "ttft": 1354,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
@@ -75,7 +59,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1100,
+    "ttft": 721,
     "model": "particle-ai/particle-1:free",
     "id": "OpenRouter::particle-ai/particle-1:free"
   },
@@ -83,7 +67,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 2459,
+    "ttft": 1917,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "Cline::baidu/ernie-5.5-flash-preview:free"
   },
@@ -91,7 +75,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1035,
+    "ttft": 936,
     "model": "liquid/lfm-3-1.7b:free",
     "id": "Cline::liquid/lfm-3-1.7b:free"
   },
@@ -99,7 +83,7 @@
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 82576,
+    "ttft": 1449,
     "model": "minimaxai/minimax-m3.1-flash",
     "id": "NVIDIA::minimaxai/minimax-m3.1-flash"
   }
