@@ -3,7 +3,7 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 56700,
+    "ttft": 976,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -11,7 +11,23 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 28506,
+    "ttft": 1718,
+    "model": "gemini-3-flash-preview",
+    "id": "Google::gemini-3-flash-preview"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 3284,
+    "model": "gemini-3.5-flash",
+    "id": "Google::gemini-3.5-flash"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 2287,
     "model": "gemini-3.6-flash",
     "id": "Google::gemini-3.6-flash"
   },
@@ -19,15 +35,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 2759,
-    "model": "inclusionai/ling-3.2-flash:free",
-    "id": "OpenRouter::inclusionai/ling-3.2-flash:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 1820,
+    "ttft": 942,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
@@ -35,7 +43,7 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 942,
+    "ttft": 897,
     "model": "particle-ai/particle-1:free",
     "id": "OpenRouter::particle-ai/particle-1:free"
   },
@@ -43,24 +51,8 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1563,
+    "ttft": 1437,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "Cline::baidu/ernie-5.5-flash-preview:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 1241,
-    "model": "liquid/lfm-3-1.7b:free",
-    "id": "Cline::liquid/lfm-3-1.7b:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
-    "reasoning": false,
-    "ttft": 1302,
-    "model": "particle-ai/particle-1:free",
-    "id": "Cline::particle-ai/particle-1:free"
   }
 ]
