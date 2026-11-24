@@ -3,7 +3,7 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 976,
+    "ttft": 779,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -11,7 +11,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1718,
+    "ttft": 2299,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -19,7 +19,15 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 3284,
+    "ttft": 4519,
+    "model": "gemini-3.1-flash-lite-preview",
+    "id": "Google::gemini-3.1-flash-lite-preview"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 2979,
     "model": "gemini-3.5-flash",
     "id": "Google::gemini-3.5-flash"
   },
@@ -27,7 +35,15 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2287,
+    "ttft": 774,
+    "model": "gemini-3.5-flash-lite",
+    "id": "Google::gemini-3.5-flash-lite"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 12586,
     "model": "gemini-3.6-flash",
     "id": "Google::gemini-3.6-flash"
   },
@@ -35,24 +51,40 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 942,
+    "ttft": 2479,
     "model": "baidu/ernie-5.5-flash-preview:free",
     "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 897,
-    "model": "particle-ai/particle-1:free",
-    "id": "OpenRouter::particle-ai/particle-1:free"
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 1043,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "Cline::baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1437,
-    "model": "baidu/ernie-5.5-flash-preview:free",
-    "id": "Cline::baidu/ernie-5.5-flash-preview:free"
+    "ttft": 1439,
+    "model": "liquid/lfm-3-1.7b:free",
+    "id": "Cline::liquid/lfm-3-1.7b:free"
+  },
+  {
+    "default": false,
+    "provider": "NVIDIA",
+    "reasoning": false,
+    "ttft": 70586,
+    "model": "minimaxai/minimax-m3.1-flash",
+    "id": "NVIDIA::minimaxai/minimax-m3.1-flash"
+  },
+  {
+    "default": false,
+    "provider": "NVIDIA",
+    "reasoning": false,
+    "ttft": 35111,
+    "model": "z-ai/glm-5.3-flash",
+    "id": "NVIDIA::z-ai/glm-5.3-flash"
   }
 ]
