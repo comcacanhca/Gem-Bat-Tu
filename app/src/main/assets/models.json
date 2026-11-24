@@ -3,7 +3,7 @@
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 490,
+    "ttft": 703,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -11,7 +11,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 1841,
+    "ttft": 2472,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -19,23 +19,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 5360,
-    "model": "gemini-3.1-flash-lite-preview",
-    "id": "Google::gemini-3.1-flash-lite-preview"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 56728,
-    "model": "gemini-3.1-flash-lite",
-    "id": "Google::gemini-3.1-flash-lite"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 26290,
+    "ttft": 58915,
     "model": "gemini-3.5-flash",
     "id": "Google::gemini-3.5-flash"
   },
@@ -43,7 +27,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 5894,
+    "ttft": 358,
     "model": "gemini-3.5-flash-lite",
     "id": "Google::gemini-3.5-flash-lite"
   },
@@ -51,23 +35,23 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 15427,
+    "ttft": 8917,
     "model": "gemini-3.6-flash",
     "id": "Google::gemini-3.6-flash"
   },
   {
     "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 11224,
-    "model": "gemini-4-hydrogen",
-    "id": "Google::gemini-4-hydrogen"
+    "provider": "OpenRouter",
+    "reasoning": true,
+    "ttft": 1597,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1300,
+    "ttft": 1118,
     "model": "particle-ai/particle-1:free",
     "id": "OpenRouter::particle-ai/particle-1:free"
   },
@@ -75,7 +59,15 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 880,
+    "ttft": 2510,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "Cline::baidu/ernie-5.5-flash-preview:free"
+  },
+  {
+    "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 940,
     "model": "liquid/lfm-3-1.7b:free",
     "id": "Cline::liquid/lfm-3-1.7b:free"
   },
@@ -83,7 +75,7 @@
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1168,
+    "ttft": 2344,
     "model": "particle-ai/particle-1:free",
     "id": "Cline::particle-ai/particle-1:free"
   },
@@ -91,7 +83,7 @@
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 309,
+    "ttft": 283,
     "model": "nvidia/nemotron-3.5-bolt-e4b",
     "id": "NVIDIA::nvidia/nemotron-3.5-bolt-e4b"
   }
