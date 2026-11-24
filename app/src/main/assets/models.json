@@ -1,57 +1,49 @@
 [
   {
-    "default": false,
+    "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 8929,
+    "ttft": 8212,
     "model": "gemma-4-26b-a4b-it",
     "id": "Google::gemma-4-26b-a4b-it"
   },
   {
-    "default": true,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 1828,
-    "model": "gemini-flash-lite-latest",
-    "id": "Google::gemini-flash-lite-latest"
-  },
-  {
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2243,
-    "model": "gemini-3-flash-preview",
-    "id": "Google::gemini-3-flash-preview"
+    "ttft": 83583,
+    "model": "gemma-4-31b-it",
+    "id": "Google::gemma-4-31b-it"
   },
   {
     "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 16188,
-    "model": "gemini-3.5-flash",
-    "id": "Google::gemini-3.5-flash"
+    "provider": "OpenRouter",
+    "reasoning": true,
+    "ttft": 1196,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
   },
   {
     "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 1002,
-    "model": "gemini-3.5-flash-lite",
-    "id": "Google::gemini-3.5-flash-lite"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 2658,
-    "model": "gemini-3.6-flash",
-    "id": "Google::gemini-3.6-flash"
+    "provider": "OpenRouter",
+    "reasoning": true,
+    "ttft": 1372,
+    "model": "particle-ai/particle-1:free",
+    "id": "OpenRouter::particle-ai/particle-1:free"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 1275,
+    "ttft": 1005,
+    "model": "baidu/ernie-5.5-flash-preview:free",
+    "id": "Cline::baidu/ernie-5.5-flash-preview:free"
+  },
+  {
+    "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 1777,
     "model": "liquid/lfm-3-1.7b:free",
     "id": "Cline::liquid/lfm-3-1.7b:free"
   },
@@ -59,7 +51,7 @@
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 348,
+    "ttft": 312,
     "model": "nvidia/nemotron-3.5-bolt-e4b",
     "id": "NVIDIA::nvidia/nemotron-3.5-bolt-e4b"
   }
