@@ -1,41 +1,49 @@
 [
   {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 33973,
+    "model": "gemma-4-31b-it",
+    "id": "Google::gemma-4-31b-it"
+  },
+  {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 50572,
-    "model": "gemini-3.5-flash-lite",
-    "id": "Google::gemini-3.5-flash-lite"
+    "ttft": 44160,
+    "model": "gemini-flash-lite-latest",
+    "id": "Google::gemini-flash-lite-latest"
   },
   {
     "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 1780,
-    "model": "baidu/ernie-5.5-flash-preview:free",
-    "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
-  },
-  {
-    "default": false,
-    "provider": "OpenRouter",
-    "reasoning": true,
-    "ttft": 1063,
-    "model": "particle-ai/particle-1:free",
-    "id": "OpenRouter::particle-ai/particle-1:free"
-  },
-  {
-    "default": false,
-    "provider": "Cline",
+    "provider": "Google",
     "reasoning": false,
-    "ttft": 1270,
-    "model": "particle-ai/particle-1:free",
-    "id": "Cline::particle-ai/particle-1:free"
+    "ttft": 2585,
+    "model": "gemini-3.5-flash",
+    "id": "Google::gemini-3.5-flash"
+  },
+  {
+    "default": false,
+    "provider": "Google",
+    "reasoning": false,
+    "ttft": 4603,
+    "model": "gemini-3.6-flash",
+    "id": "Google::gemini-3.6-flash"
   },
   {
     "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 345,
+    "ttft": 8025,
+    "model": "google/gemma-4-31b-it",
+    "id": "NVIDIA::google/gemma-4-31b-it"
+  },
+  {
+    "default": false,
+    "provider": "NVIDIA",
+    "reasoning": false,
+    "ttft": 368,
     "model": "nvidia/nemotron-3.5-bolt-e4b",
     "id": "NVIDIA::nvidia/nemotron-3.5-bolt-e4b"
   }
