@@ -1,17 +1,9 @@
 [
   {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 29507,
-    "model": "gemma-4-31b-it",
-    "id": "Google::gemma-4-31b-it"
-  },
-  {
     "default": true,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 596,
+    "ttft": 837,
     "model": "gemini-flash-lite-latest",
     "id": "Google::gemini-flash-lite-latest"
   },
@@ -19,7 +11,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2016,
+    "ttft": 4348,
     "model": "gemini-3-flash-preview",
     "id": "Google::gemini-3-flash-preview"
   },
@@ -27,7 +19,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 3326,
+    "ttft": 9186,
     "model": "gemini-3.1-flash-lite-preview",
     "id": "Google::gemini-3.1-flash-lite-preview"
   },
@@ -35,7 +27,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 2280,
+    "ttft": 4879,
     "model": "gemini-3.1-flash-lite",
     "id": "Google::gemini-3.1-flash-lite"
   },
@@ -43,15 +35,7 @@
     "default": false,
     "provider": "Google",
     "reasoning": false,
-    "ttft": 14291,
-    "model": "gemini-3.5-flash",
-    "id": "Google::gemini-3.5-flash"
-  },
-  {
-    "default": false,
-    "provider": "Google",
-    "reasoning": false,
-    "ttft": 479,
+    "ttft": 536,
     "model": "gemini-3.5-flash-lite",
     "id": "Google::gemini-3.5-flash-lite"
   },
@@ -59,24 +43,32 @@
     "default": false,
     "provider": "OpenRouter",
     "reasoning": true,
-    "ttft": 1511,
-    "model": "baidu/ernie-5.5-flash-preview:free",
-    "id": "OpenRouter::baidu/ernie-5.5-flash-preview:free"
+    "ttft": 1985,
+    "model": "particle-ai/particle-1:free",
+    "id": "OpenRouter::particle-ai/particle-1:free"
   },
   {
     "default": false,
     "provider": "Cline",
     "reasoning": false,
-    "ttft": 2923,
+    "ttft": 793,
     "model": "liquid/lfm-3-1.7b:free",
     "id": "Cline::liquid/lfm-3-1.7b:free"
   },
   {
     "default": false,
+    "provider": "Cline",
+    "reasoning": false,
+    "ttft": 950,
+    "model": "particle-ai/particle-1:free",
+    "id": "Cline::particle-ai/particle-1:free"
+  },
+  {
+    "default": false,
     "provider": "NVIDIA",
     "reasoning": false,
-    "ttft": 2532,
-    "model": "meta/muse-glimmer-30b",
-    "id": "NVIDIA::meta/muse-glimmer-30b"
+    "ttft": 330,
+    "model": "nvidia/nemotron-3.5-bolt-e4b",
+    "id": "NVIDIA::nvidia/nemotron-3.5-bolt-e4b"
   }
 ]
