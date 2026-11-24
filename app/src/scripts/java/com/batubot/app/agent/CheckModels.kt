@@ -657,7 +657,7 @@ fun discoverNvidiaModels(client: OkHttpClient, apiKey: String): List<DiscoveredM
                             val modelIdLower = modelId.lowercase()
 
                             // Chỉ lấy model có chứa "gemma", "gpt" hoặc "deepseek"
-                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("glm") && !modelIdLower.contains("deepseek") && !modelIdLower.contains("minimax")) {
+                            if (!modelIdLower.contains("gemma") && !modelIdLower.contains("glm") && !modelIdLower.contains("deepseek") && !modelIdLower.contains("muse")) {
                                 continue
                             }
 
